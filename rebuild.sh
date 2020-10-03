@@ -33,6 +33,11 @@ KEYS_MEDIA=/org/gnome/settings-daemon/plugins/media-keys
 dconf write /org/gnome/mutter/wayland/keybindings/restore-shortcuts "@as []"
 # Hide window: disable <Super>h
 dconf write ${KEYS_GNOME_WM}/minimize "@as []"
+# Disable edge tiling when draggin with mousekey
+dconf write ${KEYS_MUTTER}/edge-tiling false
+dconf write ${KEYS_GNOME_SHELL}/overrides/edge-tiling false
+# Increases draggable border width
+dconf write ${KEYS_MUTTER}/draggable-border-width 20
 
 # Open the application menu: disable <Super>m
 dconf write ${KEYS_GNOME_SHELL}/keybindings/open-application-menu "@as []"
@@ -49,11 +54,6 @@ dconf write ${KEYS_GNOME_WM}/move-to-monitor-right "['<Super><Shift>Right']"
 # Disable tiling to left / right of screen
 dconf write ${KEYS_MUTTER}/keybindings/toggle-tiled-left "@as []"
 dconf write ${KEYS_MUTTER}/keybindings/toggle-tiled-right "@as []"
-# Disable edge tiling when draggin with mousekey
-dconf write ${KEYS_MUTTER}/edge-tiling false
-dconf write ${KEYS_GNOME_SHELL}/overrides/edge-tiling false
-# Increases draggable border width
-dconf write ${KEYS_MUTTER}/draggable-border-width 20
 
 # Super + direction keys, move window left and right monitors, or up and down workspaces
 # Move window one workspace Down
@@ -83,12 +83,10 @@ fi
 # dconf write ${KEYS_GNOME_WM}/switch-to-workspace-down "@as []"
 # Move to workspace above
 # dconf write ${KEYS_GNOME_WM}/switch-to-workspace-up "@as []"
-
-
-# Toggle maximization state
-# dconf write ${KEYS_GNOME_WM}/toggle-maximized "['<Super>m']"
 # Lock screen
 # dconf write ${KEYS_MEDIA}/screensaver "['<Super>Escape']"
+
+
 # Home folder
 dconf write ${KEYS_MEDIA}/home "['<Super>e']"
 # Launch email client
@@ -99,7 +97,15 @@ dconf write ${KEYS_MEDIA}/www "@as []"
 dconf write ${KEYS_MEDIA}/rotate-video-lock-static "@as []"
 
 # Close Window
-dconf write ${KEYS_GNOME_WM}/close "['<Super>q']"
+dconf write ${KEYS_GNOME_WM}/close "['<Alt><Shift>Q', '<Alt>F4']"
+# Toggle above
+dconf write ${KEYS_GNOME_WM}/toggle-above "['<Alt><Shift>A']"
+# Toggle maximization state
+dconf write ${KEYS_GNOME_WM}/toggle-maximized "['<Alt>F11', '<Alt><Shift>D']"
+# Begin Move
+dconf write ${KEYS_GNOME_WM}/begin-move "['<Alt><Shift>E']"
+# Begin Resize
+dconf write ${KEYS_GNOME_WM}/begin-resize "['<Alt><Shift>R']"
 
 # Use a window placement behavior which works better for tiling
 gnome-extensions enable native-window-placement

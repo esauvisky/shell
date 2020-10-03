@@ -49,22 +49,22 @@
 
         <!-- Focus Shifting -->
         <key type="as" name="focus-left">
-            <default><![CDATA[['<Super>Left']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Focus left window</summary>
         </key>
 
         <key type="as" name="focus-down">
-            <default><![CDATA[['<Super>Down']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Focus down window</summary>
         </key>
 
         <key type="as" name="focus-up">
-            <default><![CDATA[['<Super>Up']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Focus up window</summary>
         </key>
 
         <key type="as" name="focus-right">
-            <default><![CDATA[['<Super>Right']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Focus right window</summary>
         </key>
 
@@ -86,7 +86,7 @@
         </key>
 
         <key type="as" name="management-orientation">
-            <default><![CDATA[['<Super>o']]]></default>
+            <default><![CDATA[['<Alt><Shift>o']]]></default>
             <summary>Toggle tiling orientation</summary>
         </key>
 
@@ -106,13 +106,13 @@
         </key>
 
         <key type="as" name="toggle-floating">
-            <default><![CDATA[['<Super>d']]]></default>
+            <default><![CDATA[['<Alt><Shift>S']]]></default>
             <summary>Toggles a window between floating and tiling</summary>
         </key>
 
         <!-- Tiling Mode -->
         <key type="as" name="toggle-tiling">
-            <default><![CDATA[['<Super>f']]]></default>
+            <default><![CDATA[['<Alt><Shift>F']]]></default>
             <summary>Toggles auto-tiling on and off</summary>
         </key>
 
