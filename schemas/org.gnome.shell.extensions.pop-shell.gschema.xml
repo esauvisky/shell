@@ -49,22 +49,22 @@
 
         <!-- Focus Shifting -->
         <key type="as" name="focus-left">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Super>Left']]]></default>
             <summary>Focus left window</summary>
         </key>
 
         <key type="as" name="focus-down">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Super>Down']]]></default>
             <summary>Focus down window</summary>
         </key>
 
         <key type="as" name="focus-up">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Super>Up']]]></default>
             <summary>Focus up window</summary>
         </key>
 
         <key type="as" name="focus-right">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Super>Right']]]></default>
             <summary>Focus right window</summary>
         </key>
 
@@ -86,7 +86,7 @@
         </key>
 
         <key type="as" name="management-orientation">
-            <default><![CDATA[['<Alt><Shift>o']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Toggle tiling orientation</summary>
         </key>
 
@@ -138,7 +138,7 @@
         </key>
 
         <key type="as" name="tile-orientation">
-            <default><![CDATA[['<Super>o']]]></default>
+            <default><![CDATA[['<Alt><Shift>o']]]></default>
             <summary>Toggle tiling orientation</summary>
         </key>
 
@@ -165,22 +165,22 @@
 
         <!-- Swap windows -->
         <key type="as" name="tile-swap-left">
-            <default><![CDATA[['<Super>Left']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Swap window left</summary>
         </key>
 
         <key type="as" name="tile-swap-down">
-            <default><![CDATA[['<Super>Down']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Swap window down</summary>
         </key>
 
         <key type="as" name="tile-swap-up">
-            <default><![CDATA[['<Super>Up']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Swap window up</summary>
         </key>
 
         <key type="as" name="tile-swap-right">
-            <default><![CDATA[['<Super>Right']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Swap window right</summary>
         </key>
 
