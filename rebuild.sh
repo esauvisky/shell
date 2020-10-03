@@ -24,8 +24,8 @@ make install
 # right="l"
 
 KEYS_GNOME_WM=/org/gnome/desktop/wm/keybindings
-KEYS_GNOME_SHELL=/org/gnome/shell/keybindings
-KEYS_MUTTER=/org/gnome/mutter/keybindings
+KEYS_GNOME_SHELL=/org/gnome/shell
+KEYS_MUTTER=/org/gnome/mutter
 KEYS_MEDIA=/org/gnome/settings-daemon/plugins/media-keys
 
 # Disable incompatible shortcuts
@@ -35,10 +35,10 @@ dconf write /org/gnome/mutter/wayland/keybindings/restore-shortcuts "@as []"
 dconf write ${KEYS_GNOME_WM}/minimize "@as []"
 
 # Open the application menu: disable <Super>m
-dconf write ${KEYS_GNOME_SHELL}/open-application-menu "@as []"
+dconf write ${KEYS_GNOME_SHELL}/keybindings/open-application-menu "@as []"
 
 # Toggle message tray: disable <Super>m
-dconf write ${KEYS_GNOME_SHELL}/toggle-message-tray "@as []"
+dconf write ${KEYS_GNOME_SHELL}/keybindings/toggle-message-tray "@as []"
 
 # # Move to monitor up: disable <Super><Shift>Up
 dconf write ${KEYS_GNOME_WM}/move-to-monitor-up "['<Super><Shift>Up']"
@@ -47,8 +47,13 @@ dconf write ${KEYS_GNOME_WM}/move-to-monitor-left "['<Super><Shift>Left']"
 dconf write ${KEYS_GNOME_WM}/move-to-monitor-right "['<Super><Shift>Right']"
 
 # Disable tiling to left / right of screen
-dconf write ${KEYS_MUTTER}/toggle-tiled-left "@as []"
-dconf write ${KEYS_MUTTER}/toggle-tiled-right "@as []"
+dconf write ${KEYS_MUTTER}/keybindings/toggle-tiled-left "@as []"
+dconf write ${KEYS_MUTTER}/keybindings/toggle-tiled-right "@as []"
+# Disable edge tiling when draggin with mousekey
+dconf write ${KEYS_MUTTER}/edge-tiling false
+dconf write ${KEYS_GNOME_SHELL}/overrides/edge-tiling false
+# Increases draggable border width
+dconf write ${KEYS_MUTTER}/draggable-border-width 20
 
 # Super + direction keys, move window left and right monitors, or up and down workspaces
 # Move window one workspace Down
@@ -68,6 +73,11 @@ dconf write ${KEYS_GNOME_WM}/switch-to-workspace-left "['<Primary><Alt>Left']"
 # Move view one workspace Right
 dconf write ${KEYS_GNOME_WM}/switch-to-workspace-right "['<Primary><Alt>Right']"
 
+# Fix for wsmatrix
+if dconf list /org/gnome/shell/extensions/wsmatrix/; then
+    dconf write /org/gnome/shell/extensions/wsmatrix/workspace-overview-toggle "@as []"
+fi
+
 # Super + Ctrl + direction keys, change workspaces, move focus between monitors
 # Move to workspace below
 # dconf write ${KEYS_GNOME_WM}/switch-to-workspace-down "@as []"
@@ -80,16 +90,16 @@ dconf write ${KEYS_GNOME_WM}/switch-to-workspace-right "['<Primary><Alt>Right']"
 # Lock screen
 # dconf write ${KEYS_MEDIA}/screensaver "['<Super>Escape']"
 # Home folder
-# dconf write ${KEYS_MEDIA}/home "['<Super>e']"
+dconf write ${KEYS_MEDIA}/home "['<Super>e']"
 # Launch email client
-# dconf write ${KEYS_MEDIA}/email "['<Super>e']"
+dconf write ${KEYS_MEDIA}/email "@as []"
 # Launch web browser
-# dconf write ${KEYS_MEDIA}/www "['<Super>b']"
+dconf write ${KEYS_MEDIA}/www "@as []"
 # Rotate Video Lock
-# dconf write ${KEYS_MEDIA}/rotate-video-lock-static "@as []"
+dconf write ${KEYS_MEDIA}/rotate-video-lock-static "@as []"
 
 # Close Window
-# dconf write ${KEYS_GNOME_WM}/close "['<Super>q']"
+dconf write ${KEYS_GNOME_WM}/close "['<Super>q']"
 
 # Use a window placement behavior which works better for tiling
 gnome-extensions enable native-window-placement
