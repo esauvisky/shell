@@ -29,12 +29,18 @@ export const DEFAULT_RULES: Array<FloatRule> = [
     { class: "Conky", },
     { class: "gnome-screenshot", },
     { class: "jetbrains-toolbox", },
+    { class: "jetbrains-webstorm", title: "License Activation" },
+    { class: "jetbrains-webstorm", title: "Customize WebStorm" },
+    { class: "jetbrains-webstorm", title: "Welcome to WebStorm" },
     { class: "KotatogramDesktop", title: "Media viewer" },
     { class: "Steam", title: "^((?!Steam).)*$" },
     { class: "TelegramDesktop", title: "Media viewer" },
     { class: "Slack", title: "Slack | mini panel" },
     { class: "Solaar", },
+    { class: "system76-driver", },
     { class: "zoom", },
+    { class: "Gnome-terminal", title: "Preferences – General" },
+    { class: "Gjs", title: "Settings" },
 ];
 
 export interface FloatRule {

@@ -55,7 +55,7 @@ export class ShellWindow {
     grab: boolean = false;
     activate_after_move: boolean = false;
     ignore_detach: boolean = false;
-    was_attached_to?: [Entity, boolean];
+    was_attached_to?: [Entity, boolean | number];
 
     // True if this window is currently smart-gapped
     smart_gapped: boolean = false;
@@ -255,8 +255,10 @@ export class ShellWindow {
                 && this.meta.window_type == Meta.WindowType.NORMAL
                 // Transient windows are most likely dialogs
                 && !this.is_transient()
+                // If a window lacks a class, it's probably an web browser dialog
+                && wm_class !== null
                 // Blacklist any windows that happen to leak through our filter
-                && (wm_class === null || !ext.conf.window_shall_float(wm_class, this.meta.get_title()));
+                && !ext.conf.window_shall_float(wm_class, this.meta.get_title());
         };
 
         return !ext.contains_tag(this.entity, Tags.Floating)
@@ -273,6 +275,10 @@ export class ShellWindow {
     }
 
     move(ext: Ext, rect: Rectangular, on_complete?: () => void) {
+        if ((!this.same_workspace() && this.is_maximized())) {
+            return
+        }
+
         this.hide_border();
         const clone = Rect.Rectangle.from_meta(rect);
         const meta = this.meta;
@@ -410,6 +416,11 @@ export class ShellWindow {
      */
     restack(updateState: RESTACK_STATE = RESTACK_STATE.NORMAL) {
         this.update_border_layout();
+
+        if (this.meta.is_fullscreen()) {
+            this.hide_border()
+        }
+
         let restackSpeed = RESTACK_SPEED.NORMAL;
 
         switch (updateState) {

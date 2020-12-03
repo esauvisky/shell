@@ -173,8 +173,14 @@ export class AutoTiler {
         }
     }
 
+
+
     /** Tile a window onto a workspace */
     attach_to_workspace(ext: Ext, win: ShellWindow, id: [number, number]) {
+        if (ext.should_ignore_workspace(id[0])) {
+            id = [id[0], 0]
+        }
+
         const toplevel = this.forest.find_toplevel(id);
 
         if (toplevel) {
@@ -317,11 +323,31 @@ export class AutoTiler {
      * - If the window is dropped onto a window, tile onto it
      * - If no window is present, tile onto the monitor
      */
-    on_drop(ext: Ext, win: ShellWindow) {
-        if (this.dropped_on_sibling(ext, win.entity)) return;
-
+    on_drop(ext: Ext, win: ShellWindow, via_overview: boolean = false) {
         const [cursor, monitor] = ext.cursor_status();
         const workspace = ext.active_workspace();
+
+        const attach_mon = () => {
+            const workspace_id: [number, number] = [monitor, workspace]
+            const toplevel = this.forest.find_toplevel(workspace_id);
+            if (toplevel) {
+                const attach_to = this.forest.largest_window_on(ext, toplevel);
+                if (attach_to) {
+                    this.attach_to_window(ext, attach_to, win, cursor);
+                    return;
+                }
+            }
+
+            this.attach_to_monitor(ext, win, workspace_id, ext.settings.smart_gaps());
+        }
+
+        if (via_overview) {
+            this.detach_window(ext, win.entity);
+            attach_mon()
+            return
+        }
+
+        if (this.dropped_on_sibling(ext, win.entity)) return;
 
         let attach_to = null;
         for (const found of ext.windows_at_pointer(cursor, monitor, workspace)) {
@@ -336,16 +362,7 @@ export class AutoTiler {
         if (attach_to) {
             this.attach_to_window(ext, attach_to, win, cursor);
         } else {
-            const toplevel = this.forest.find_toplevel([monitor, workspace]);
-            if (toplevel) {
-                attach_to = this.forest.largest_window_on(ext, toplevel);
-                if (attach_to) {
-                    this.attach_to_window(ext, attach_to, win, cursor);
-                    return;
-                }
-            }
-
-            this.attach_to_monitor(ext, win, ext.workspace_id(win), ext.settings.smart_gaps());
+            attach_mon()
         }
     }
 
@@ -428,7 +445,7 @@ export class AutoTiler {
 
                 if (fork.left.is_window(focused.entity)) {
                     // Assign left window as stack.
-                    focused.stack = this.forest.stacks.insert(new Stack(ext, focused.entity, fork.workspace));
+                    focused.stack = this.forest.stacks.insert(new Stack(ext, focused.entity, fork.workspace, fork.monitor));
                     fork.left = node.Node.stacked(focused.entity, focused.stack);
                     fork.measure(this.forest, ext, fork.area, this.forest.on_record());
                 } else if (fork.left.is_in_stack(focused.entity)) {
@@ -442,7 +459,7 @@ export class AutoTiler {
                     };
                 } else if (fork.right?.is_window(focused.entity)) {
                     // Assign right window as stack
-                    focused.stack = this.forest.stacks.insert(new Stack(ext, focused.entity, fork.workspace));
+                    focused.stack = this.forest.stacks.insert(new Stack(ext, focused.entity, fork.workspace, fork.monitor));
                     fork.right = node.Node.stacked(focused.entity, focused.stack);
                     fork.measure(this.forest, ext, fork.area, this.forest.on_record());
                 } else if (fork.right?.is_in_stack(focused.entity)) {
