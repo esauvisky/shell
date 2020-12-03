@@ -38,7 +38,7 @@ dconf write ${KEYS_GNOME_WM}/minimize "@as []"
 dconf write ${KEYS_MUTTER}/edge-tiling false
 dconf write ${KEYS_GNOME_SHELL}/overrides/edge-tiling false
 # Increases draggable border width
-dconf write ${KEYS_MUTTER}/draggable-border-width 20
+dconf write ${KEYS_MUTTER}/draggable-border-width 10
 
 # Open the application menu: disable <Super>m
 dconf write ${KEYS_GNOME_SHELL}/keybindings/open-application-menu "@as []"
@@ -47,10 +47,10 @@ dconf write ${KEYS_GNOME_SHELL}/keybindings/open-application-menu "@as []"
 dconf write ${KEYS_GNOME_SHELL}/keybindings/toggle-message-tray "@as []"
 
 # # Move to monitor up: disable <Super><Shift>Up
-dconf write ${KEYS_GNOME_WM}/move-to-monitor-up "['<Super><Shift>Up']"
-dconf write ${KEYS_GNOME_WM}/move-to-monitor-down "['<Super><Shift>Down']"
-dconf write ${KEYS_GNOME_WM}/move-to-monitor-left "['<Super><Shift>Left']"
-dconf write ${KEYS_GNOME_WM}/move-to-monitor-right "['<Super><Shift>Right']"
+dconf write ${KEYS_GNOME_WM}/move-to-monitor-up "@as []"
+dconf write ${KEYS_GNOME_WM}/move-to-monitor-down "@as []"
+dconf write ${KEYS_GNOME_WM}/move-to-monitor-left "@as []"
+dconf write ${KEYS_GNOME_WM}/move-to-monitor-right "@as []"
 
 # Disable tiling to left / right of screen
 dconf write ${KEYS_MUTTER}/keybindings/toggle-tiled-left "@as []"
@@ -98,15 +98,15 @@ dconf write ${KEYS_MEDIA}/www "@as []"
 dconf write ${KEYS_MEDIA}/rotate-video-lock-static "@as []"
 
 # Close Window
-dconf write ${KEYS_GNOME_WM}/close "['<Alt><Shift>Q', '<Alt>F4']"
+dconf write ${KEYS_GNOME_WM}/close "['<Alt>F4']"
 # Toggle above
 dconf write ${KEYS_GNOME_WM}/toggle-above "['<Alt><Shift>A']"
 # Toggle maximization state
-dconf write ${KEYS_GNOME_WM}/toggle-maximized "['<Alt>F11', '<Alt><Shift>D']"
+dconf write ${KEYS_GNOME_WM}/toggle-maximized "['<Alt>F11']"
 # Begin Move
-dconf write ${KEYS_GNOME_WM}/begin-move "['<Alt><Shift>E']"
+dconf write ${KEYS_GNOME_WM}/begin-move "@as []"
 # Begin Resize
-dconf write ${KEYS_GNOME_WM}/begin-resize "['<Alt><Shift>R']"
+dconf write ${KEYS_GNOME_WM}/begin-resize "@as []"
 
 # Use a window placement behavior which works better for tiling
 gnome-extensions enable native-window-placement

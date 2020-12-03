@@ -49,22 +49,22 @@
 
         <!-- Focus Shifting -->
         <key type="as" name="focus-left">
-            <default><![CDATA[['<Super>Left']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Focus left window</summary>
         </key>
 
         <key type="as" name="focus-down">
-            <default><![CDATA[['<Super>Down']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Focus down window</summary>
         </key>
 
         <key type="as" name="focus-up">
-            <default><![CDATA[['<Super>Up']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Focus up window</summary>
         </key>
 
         <key type="as" name="focus-right">
-            <default><![CDATA[['<Super>Right']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Focus right window</summary>
         </key>
 
@@ -106,81 +106,81 @@
         </key>
 
         <key type="as" name="toggle-floating">
-            <default><![CDATA[['<Alt><Shift>S']]]></default>
+            <default><![CDATA[['<Super>S']]]></default>
             <summary>Toggles a window between floating and tiling</summary>
         </key>
 
         <!-- Tiling Mode -->
         <key type="as" name="toggle-tiling">
-            <default><![CDATA[['<Alt><Shift>F']]]></default>
+            <default><![CDATA[['<Super>F']]]></default>
             <summary>Toggles auto-tiling on and off</summary>
         </key>
 
 
         <key type="as" name="tile-move-left">
-            <default><![CDATA[['Left']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Move window left</summary>
         </key>
 
         <key type="as" name="tile-move-down">
-            <default><![CDATA[['Down']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Move window down</summary>
         </key>
 
         <key type="as" name="tile-move-up">
-            <default><![CDATA[['Up']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Move window up</summary>
         </key>
 
         <key type="as" name="tile-move-right">
-            <default><![CDATA[['Right']]]></default>
+            <default><![CDATA[[]]]></default>
             <summary>Move window right</summary>
         </key>
 
         <key type="as" name="tile-orientation">
-            <default><![CDATA[['<Alt><Shift>o']]]></default>
+            <default><![CDATA[['<Super>o']]]></default>
             <summary>Toggle tiling orientation</summary>
         </key>
 
         <!-- Resize in normal direction -->
         <key type="as" name="tile-resize-left">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Super>Left']]]></default>
             <summary>Resize window left</summary>
         </key>
 
         <key type="as" name="tile-resize-down">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Super>Down']]]></default>
             <summary>Resize window down</summary>
         </key>
 
         <key type="as" name="tile-resize-up">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Super>Up']]]></default>
             <summary>Resize window up</summary>
         </key>
 
         <key type="as" name="tile-resize-right">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Super>Right']]]></default>
             <summary>Resize window right</summary>
         </key>
 
         <!-- Swap windows -->
         <key type="as" name="tile-swap-left">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Primary><Super>Left']]]></default>
             <summary>Swap window left</summary>
         </key>
 
         <key type="as" name="tile-swap-down">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Primary><Super>Down']]]></default>
             <summary>Swap window down</summary>
         </key>
 
         <key type="as" name="tile-swap-up">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Primary><Super>Up']]]></default>
             <summary>Swap window up</summary>
         </key>
 
         <key type="as" name="tile-swap-right">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Primary><Super>Right']]]></default>
             <summary>Swap window right</summary>
         </key>
 
@@ -197,27 +197,27 @@
         </key>
 
         <key type="as" name="pop-monitor-down">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Super><Shift>Up']]]></default>
             <summary>Move window to the lower monitor</summary>
         </key>
 
         <key type="as" name="pop-monitor-up">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Super><Shift>Down']]]></default>
             <summary>Move window to the upper monitor</summary>
         </key>
 
         <key type="as" name="pop-monitor-left">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Super><Shift>Left']]]></default>
             <summary>Move window to the leftward monitor</summary>
         </key>
 
         <key type="as" name="pop-monitor-right">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Super><Shift>Right']]]></default>
             <summary>Move window to the rightward monitor</summary>
         </key>
 
         <key type="s" name="hint-color-rgba">
-            <default>'rgba(21, 81, 154, 0.75)'</default>
+            <default>'rgba(175, 172, 46, 0.75)'</default>
             <summary>The current active-hint-color in RGBA</summary>
         </key>
         <key type="u" name="log-level">
